@@ -1,0 +1,15 @@
+<Panel ux:Class="Header" Height="120" Alignment="Top" Background="#F44336">
+    <Style>
+        <Text TextColor="#fff" />
+    </Style>
+    <StackPanel Padding="30,20" ItemSpacing="35">
+        <Text FontSize="22" Font="Medium">
+            Fuse app
+        </Text>
+        <StackPanel Orientation="Horizontal" ItemSpacing="30">
+            <Text>TAB ONE</Text>
+            <Text>TAB TWO</Text>
+            <Text>TAB THREE</Text>
+        </StackPanel>
+    </StackPanel>
+</Panel>

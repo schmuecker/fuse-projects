@@ -1,3 +1,39 @@
 <App Theme="Basic">
+    <Font File="Assets/Fonts/Roboto/Roboto-Regular.ttf" ux:Global="Regular" />
+    <Font File="Assets/Fonts/Roboto/Roboto-Medium.ttf" ux:Global="Medium" />
+    <Font File="Assets/Fonts/Roboto/Roboto-Bold.ttf" ux:Global="Bold" />
+    <JavaScript>
+        var list = ["List Item 1", "List Item 2", "List Item 3"];
+
+        var add = function () {
+            list.push("woop");
+        };
+
+        module.exports = {
+            list: list,
+            add: add
+        }
+    </JavaScript>
+    <StackPanel ux:Name="wrapper">
+        <Header />
+        <StackPanel Orientation="Vertical" Background="#000" Padding="40">
+            <Style>
+                <Text TextColor="#fff" Font="Regular"/>
+                <Button Background="#000" />
+            </Style>
+            <Text TextWrapping="Wrap">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
+            <Button Clicked="{add}" Text="Hallo Welt" />
+            <Slider />
+            <TextInput/>
+            <ScrollView Height="110">
+                <StackPanel Padding="20" Width="80%">
+                    <Each Items="{list}">
+                        <Text Value="{}" />
+                        <Rectangle Background="#222" Height="1" Margin="0,10,0,10"/>
+                    </Each>
+                </StackPanel>
+            </ScrollView>
+        </StackPanel>
+    </StackPanel>
 </App>
 
