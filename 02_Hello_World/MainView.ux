@@ -1,0 +1,13 @@
+<App Theme="Basic">
+    <DockPanel>
+        <StackPanel Alignment="VerticalCenter" Width="80%" ItemSpacing="30">
+            <Text ux:Name="hello-label" Value=" " Alignment="Center"/>
+            <Button Text="Hello World!">
+                <Clicked>
+                    <Set hello-label.Value="Hello World!" />
+                </Clicked>
+            </Button>
+        </StackPanel>
+    </DockPanel>
+</App>
+
