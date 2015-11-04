@@ -1,39 +1,84 @@
 <App Theme="Basic">
+    <iOS.StatusBarConfig Style="Light" />
     <Font File="Assets/Fonts/Roboto/Roboto-Regular.ttf" ux:Global="Regular" />
     <Font File="Assets/Fonts/Roboto/Roboto-Medium.ttf" ux:Global="Medium" />
     <Font File="Assets/Fonts/Roboto/Roboto-Bold.ttf" ux:Global="Bold" />
+
     <JavaScript>
-        var list = ["List Item 1", "List Item 2", "List Item 3"];
+    var Observable = require("FuseJS/Observable");
+    var list = Observable("List Item 1", "List Item 2", "List Item 3");
 
-        var add = function () {
-            list.push("woop");
-        };
+    var add = function () {
+        list.add("woop");
+    };
 
-        module.exports = {
-            list: list,
-            add: add
-        }
+    module.exports = {
+        list: list,
+        add: add
+    }
     </JavaScript>
-    <StackPanel ux:Name="wrapper">
-        <Header />
-        <StackPanel Orientation="Vertical" Background="#000" Padding="40">
-            <Style>
-                <Text TextColor="#fff" Font="Regular"/>
-                <Button Background="#000" />
-            </Style>
-            <Text TextWrapping="Wrap">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
-            <Button Clicked="{add}" Text="Hallo Welt" />
-            <Slider />
-            <TextInput/>
-            <ScrollView Height="110">
-                <StackPanel Padding="20" Width="80%">
-                    <Each Items="{list}">
-                        <Text Value="{}" />
-                        <Rectangle Background="#222" Height="1" Margin="0,10,0,10"/>
-                    </Each>
+
+    <Panel>
+        <Style>
+            <Page ux:InheritStyle="false">
+                <EnteringAnimation>
+                    <Move X="-1" RelativeTo="Size" />
+                </EnteringAnimation>
+                <ExitingAnimation>
+                    <Move X="1" RelativeTo="Size" />
+                </ExitingAnimation>
+            </Page>
+        </Style>
+        <PageControl>
+            <LinearNavigation ux:Name="tabs" Easing="ElasticInOut" Duration="0.3" />
+            <Page ux:Name="tab1">
+                <StackPanel ux:Name="wrapper">
+                    <StatusBarBackground Background="#F44336" />
+                    <Header />
+                    <StackPanel Orientation="Vertical" Padding="40">
+                        <Style>
+                            <Text TextColor="#000" Font="Regular" />
+                            <Button />
+                        </Style>
+                        <Text TextWrapping="Wrap">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
+                        <Button Clicked="{add}" Text="Hallo Welt" />
+                        <Button Text="to two -&gt;">
+                            <Clicked>
+                            </Clicked>
+                        </Button>
+                        <Slider />
+                        <TextInput />
+                        <ScrollView Height="110">
+                            <StackPanel Padding="20" Width="80" Opacity="1" Alignment="Right" Height="256.91" Orientation="Vertical">
+                                <Each Items="{list}">
+                                    <Text Value="{}" />
+                                    <Rectangle Background="#222" Height="1" Margin="0,10,0,10" />
+                                </Each>
+                            </StackPanel>
+                        </ScrollView>
+                    </StackPanel>
                 </StackPanel>
-            </ScrollView>
-        </StackPanel>
-    </StackPanel>
+            </Page>
+            <Page ux:Name="tab2">
+                <StackPanel Background="#000">
+                    <Rectangle Width="50" Height="50" Background="Blue">
+                        <Draggable />
+                        <WhileDragging>
+                            <Rotate Degrees="15" Duration="0.3" Easing="BounceOut" EasingBack="BounceIn" />
+                            <Scale Factor="1.2" Duration="0.3" Easing="BounceOut" EasingBack="BounceIn" />
+                        </WhileDragging>
+                        <EnteredForceField>
+                            <Scale Factor="1.5" />
+                        </EnteredForceField>
+                    </Rectangle>
+                    <PointAttractor ux:Name="attractor" Radius="50" Strength="10" Offset="20" />
+                    <Button Text="Back" Height="100">
+                        <Clicked>
+                        </Clicked>
+                    </Button>
+                </StackPanel>
+            </Page>
+        </PageControl>
+    </Panel>
 </App>
 

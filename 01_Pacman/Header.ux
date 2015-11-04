@@ -2,14 +2,17 @@
     <Style>
         <Text TextColor="#fff" />
     </Style>
-    <StackPanel Padding="30,20" ItemSpacing="35">
+    <StackPanel Padding="30,30" ItemSpacing="30">
         <Text FontSize="22" Font="Medium">
             Fuse app
         </Text>
         <StackPanel Orientation="Horizontal" ItemSpacing="30">
-            <Text>TAB ONE</Text>
-            <Text>TAB TWO</Text>
-            <Text>TAB THREE</Text>
+            <Button Text="1">
+            </Button>
+            <Button Text="2"></Button>
+            <Text Font="Bold">TAB ONE</Text>
+            <Text Font="Regular">TAB TWO</Text>
+            <Text Font="Regular">TAB THREE</Text>
         </StackPanel>
     </StackPanel>
 </Panel>
