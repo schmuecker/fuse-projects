@@ -1,0 +1,17 @@
+<App Theme="Basic">
+	<Font File="Assets/NettoPro-Light.otf" ux:Global="NettoLight" />
+	<Font File="Assets/NettoPro-LightItalic.otf" ux:Global="NettoLightItalic" />
+	<Text ux:Class="Titel" />
+	<Text ux:Class="Untertitel" />
+
+	<StackPanel Alignment="Center">
+		<Style>
+			<Text TextColor="#000" Font="NettoLightItalic" />
+			<Titel FontSize="50" />
+			<Untertitel TextColor="#444" FontSize="22" Y="-10" />
+		</Style>
+		<Titel>Durchgestylt</Titel>
+		<Untertitel>to the maxx</Untertitel>
+	</StackPanel>
+</App>
+
