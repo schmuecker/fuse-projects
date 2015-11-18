@@ -1,0 +1,5 @@
+<StackPanel ux:Class="ButtonView">
+    <Button Text="check.">
+        <Rectangle Layer="Background" Fill="#000" Height="50" />
+    </Button>
+</StackPanel>

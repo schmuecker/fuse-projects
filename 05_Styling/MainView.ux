@@ -3,15 +3,24 @@
 	<Font File="Assets/NettoPro-LightItalic.otf" ux:Global="NettoLightItalic" />
 	<Text ux:Class="Titel" />
 	<Text ux:Class="Untertitel" />
-
-	<StackPanel Alignment="Center">
-		<Style>
-			<Text TextColor="#000" Font="NettoLightItalic" />
-			<Titel FontSize="50" />
-			<Untertitel TextColor="#444" FontSize="22" Y="-10" />
-		</Style>
-		<Titel>Durchgestylt</Titel>
-		<Untertitel>to the maxx</Untertitel>
-	</StackPanel>
+	<Panel>
+		<StackPanel Alignment="Center">
+			<Style>
+				<Text TextColor="#000" Font="NettoLightItalic" />
+				<Titel FontSize="50" />
+				<Untertitel TextColor="#444" FontSize="22" Y="-10" />
+			</Style>
+			<Titel>Durchgestylt</Titel>
+			<Untertitel>to the maxx</Untertitel>
+			<ButtonView Margin="0,20,0,0" />
+		</StackPanel>
+		<DockPanel>
+			<Rectangle Dock="Bottom" Y="135%" Fill="#000" Width="2000%" Height="800">
+				<Rotation Degrees="-55" />
+			</Rectangle>
+			<Rectangle Dock="Top" Y="-135%" Fill="#000" Width="2000%" Height="800">
+				<Rotation Degrees="-55" />
+			</Rectangle>
+		</DockPanel>
+	</Panel>
 </App>
-
