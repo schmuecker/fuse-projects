@@ -3,6 +3,7 @@
 	<DockPanel>
 		<JavaScript>
 			var Observable = require("FuseJS/Observable");
+			var interApp = require('FuseJS/InterApp');
 
 			var data = Observable();
 
@@ -10,8 +11,13 @@
 			.then(function(response) { return response.json(); })
 			.then(function(responseObject) { data.value = responseObject; });
 
+			var openUrl = function () {
+				interApp.launchUri('https://google.com');
+			};
+
 			module.exports = {
-				dataSource: data
+				dataSource: data,
+				openUrl: openUrl
 			};
 		</JavaScript>
 
@@ -19,15 +25,14 @@
 		<BottomFrameBackground Dock="Bottom" />
 
 		<StackPanel Dock="Top">
-			<Text FontSize="28" Alignment="VerticalCenter"
+			<Text FontSize="28" Margin="0,10,0,10" Alignment="VerticalCenter"
 				TextAlignment="Center" Padding="2"
 				Value="NEWS" />
 			<Rectangle Height="1" Margin="0,3,0,0" Fill="#333c48" />
 		</StackPanel>
 
-		<Text ux:Class="Header" Margin="10,10,10,5" TextWrapping="Wrap" FontSize="22" />
-		<Text ux:Class="Article" Margin="10,0,10,0" TextWrapping="Wrap" FontSize="13" />
-		<Text ux:Class="PublishedDate" Margin="10,0,10,0" FontSize="13" TextColor="#999" />
+		<Text ux:Class="Header" Margin="30,30,30,5" TextWrapping="Wrap" FontSize="18" />
+		<Text ux:Class="Article" Margin="30,0,30,0" TextWrapping="Wrap" FontSize="14" TextColor="#555" />
 
 		<ScrollView>
 			<StackPanel Alignment="Top">
@@ -40,8 +45,6 @@
 
 					<Header Value="{title}" />
 					<Article Value="{content}" />
-				 	<PublishedDate Value="{publishedDate}" />
-					<HorizontalBar />
 				</Each>
 			</StackPanel>
 		</ScrollView>
