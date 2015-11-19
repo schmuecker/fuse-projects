@@ -1,0 +1,50 @@
+<App Theme="Basic">
+
+	<DockPanel>
+		<JavaScript>
+			var Observable = require("FuseJS/Observable");
+
+			var data = Observable();
+
+			fetch('https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://www.digg.com/rss/index.xml')
+			.then(function(response) { return response.json(); })
+			.then(function(responseObject) { data.value = responseObject; });
+
+			module.exports = {
+				dataSource: data
+			};
+		</JavaScript>
+
+		<StatusBarBackground Dock="Top" />
+		<BottomFrameBackground Dock="Bottom" />
+
+		<StackPanel Dock="Top">
+			<Text FontSize="28" Alignment="VerticalCenter"
+				TextAlignment="Center" Padding="2"
+				Value="NEWS" />
+			<Rectangle Height="1" Margin="0,3,0,0" Fill="#333c48" />
+		</StackPanel>
+
+		<Text ux:Class="Header" Margin="10,10,10,5" TextWrapping="Wrap" FontSize="22" />
+		<Text ux:Class="Article" Margin="10,0,10,0" TextWrapping="Wrap" FontSize="13" />
+		<Text ux:Class="PublishedDate" Margin="10,0,10,0" FontSize="13" TextColor="#999" />
+
+		<ScrollView>
+			<StackPanel Alignment="Top">
+				<Panel Height="7" />
+				<Each Items="{dataSource.responseData.feed.entries}">
+					<Panel ux:Class="HorizontalBar" Margin="46,10,0,10"
+							Alignment="VerticalCenter">
+						<Rectangle Height="1" Fill="#dcdee3" />
+					</Panel>
+
+					<Header Value="{title}" />
+					<Article Value="{content}" />
+				 	<PublishedDate Value="{publishedDate}" />
+					<HorizontalBar />
+				</Each>
+			</StackPanel>
+		</ScrollView>
+
+	</DockPanel>
+</App>
