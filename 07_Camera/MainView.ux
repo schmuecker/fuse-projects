@@ -1,0 +1,20 @@
+<App Theme="Basic" Background="#eeeeeeff">
+	<JavaScript>
+		var camera = require('FuseJS/Camera');
+		camera.takePicture({ targetWidth: 640, targetHeight: 360}).then(function(file)
+		{
+	    // file is a standard JavaScript File object
+	    // file.path contains the path to the saved image on the device
+		}).catch(function(e) {
+			console.log(e);
+		});
+	</JavaScript>
+<DockPanel>
+	<iOS.StatusBarConfig ux:Name="statusBarConfig" Style="Light" IsVisible="true"/>
+	<Panel>
+		<Button Text="Take a picture" Height="50" Clicked="{takePicture}" />
+	</Panel>
+	<BottomBarBackground Dock="Bottom" />
+</DockPanel>
+</App>
+
