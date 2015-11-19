@@ -1,0 +1,3 @@
+<Panel ux:Class="Header">
+    <Panel Height="60" Width="100%" Background="#000" />
+</Panel>
