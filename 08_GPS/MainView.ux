@@ -13,24 +13,28 @@
 
 	var latitude = Observable("");
 	var longitude = Observable("");
+	var accuracy = Observable("");
 
 	geoLocation.onChanged = function(location) {
 		latitude.value = location.latitude;
-		longitude.value = JSON.stringify(location.longitude);
+		longitude.value = location.longitude;
+		accuracy.value = location.accuracy + "%";
 	};
 	var minimumReportInterval = 1000, desiredAccuracyInMeters = 10;
 	geoLocation.startListening(minimumReportInterval, desiredAccuracyInMeters);
 
 	function stop() {
 		geoLocation.stopListening();
-	}
+	};
 
 	module.exports = {
 		stop: stop,
 		latitude: latitude,
-		longitude: longitude
-	}
+		longitude: longitude,
+		accuracy: accuracy
+	};
 	</JavaScript>
+
 	<DockPanel>
 		<iOS.StatusBarConfig ux:Name="statusBarConfig" Style="Dark" IsVisible="true"/>
 		<Panel>
@@ -38,23 +42,33 @@
 			<!-- Floating button -->
 			<DockPanel Alignment="BottomRight">
 				<Circle ux:Name="fab"  Dock="Bottom" Alignment="BottomRight" Height="70" Width="70" Fill="#009688" Margin="25">
-					<Rectangle Width="25%" Height="25%" Fill="White" />
+					<Rectangle Width="22%" Height="22%" Fill="White">
+						<Rotation Degrees="45" />
+					</Rectangle>
 					<DropShadow Size="5" />
+					<DropShadow Size="1" Color="#004D40" Angle="90" Distance="1" />
 					<WhilePressed>
 						<Change fab.Fill="fab-pressed" />
 					</WhilePressed>
 				</Circle>
 			</DockPanel>
 
-			<StackPanel Alignment="Center">
+			<!-- GPS data display -->
+			<StackPanel Alignment="Center" Width="60%" Margin="0,-20,0,0">
 				<Style>
-					<Text FontSize="22" />
+					<Text FontSize="22" Margin="0,3,0,0" />
 				</Style>
-				<Text>Latitude</Text>
+				<Text FontSize="16">LATITUDE</Text>
 				<Text ux:Name="latitude" Value="{latitude}" />
-				<Text>Longitude</Text>
+				<Text FontSize="16" Margin="0,20,0,0">LONGITUDE</Text>
 				<Text ux:Name="longitude" Value="{longitude}" />
+				<Text FontSize="16" Margin="0,20,0,0">ACCURACY</Text>
+				<Text ux:Name="longitude" Value="{accuracy}" />
 			</StackPanel>
+
+			<Panel>
+				<Rectangle Fill="White" Opacity="0.5" />
+			</Panel>
 
 		</Panel>
 		<BottomBarBackground Dock="Bottom" />
