@@ -11,28 +11,28 @@
 	var geoLocation = require('FuseJS/GeoLocation');
 	var Observable = require("FuseJS/Observable");
 
-	var latitude = Observable("");
-	var longitude = Observable("");
-	var accuracy = Observable("");
+	var latitude = Observable("_latitude");
+	var longitude = Observable("_longitude");
+	var accuracy = Observable("0%");
 
 	geoLocation.onChanged = function(location) {
 		latitude.value = location.latitude;
 		longitude.value = location.longitude;
 		accuracy.value = location.accuracy + "%";
-	};
+	}
 	var minimumReportInterval = 1000, desiredAccuracyInMeters = 10;
 	geoLocation.startListening(minimumReportInterval, desiredAccuracyInMeters);
 
 	function stop() {
 		geoLocation.stopListening();
-	};
+	}
 
 	module.exports = {
 		stop: stop,
 		latitude: latitude,
 		longitude: longitude,
 		accuracy: accuracy
-	};
+	}
 	</JavaScript>
 
 	<DockPanel>
@@ -54,16 +54,18 @@
 			</DockPanel>
 
 			<!-- GPS data display -->
-			<StackPanel Alignment="Center" Width="60%" Margin="0,-20,0,0">
+			<StackPanel Alignment="CenterLeft" Width="50%" >
+				<Text ux:Name="accuracy" Value="{accuracy}" TextAlignment="Center" Margin="0,0,0,0" FontSize="60" />
+			</StackPanel>
+			<Rectangle Width="1" Fill="Black" Height="80" X="50%" />
+			<StackPanel Alignment="CenterRight" Width="50%" Margin="80,0,0,0">
 				<Style>
-					<Text FontSize="22" Margin="0,3,0,0" />
+					<Text FontSize="24" Margin="0,3,0,0" />
 				</Style>
 				<Text FontSize="16">LATITUDE</Text>
 				<Text ux:Name="latitude" Value="{latitude}" />
 				<Text FontSize="16" Margin="0,20,0,0">LONGITUDE</Text>
 				<Text ux:Name="longitude" Value="{longitude}" />
-				<Text FontSize="16" Margin="0,20,0,0">ACCURACY</Text>
-				<Text ux:Name="longitude" Value="{accuracy}" />
 			</StackPanel>
 
 			<Panel>
