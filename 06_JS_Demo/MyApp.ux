@@ -11,13 +11,8 @@
 			.then(function(response) { return response.json(); })
 			.then(function(responseObject) { data.value = responseObject; });
 
-			var openUrl = function () {
-				interApp.launchUri('https://google.com');
-			};
-
 			module.exports = {
-				dataSource: data,
-				openUrl: openUrl
+				dataSource: data
 			};
 		</JavaScript>
 
