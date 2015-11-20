@@ -1,19 +1,43 @@
-<App Theme="Basic" Background="#eeeeeeff">
+<App Theme="NativeWithFallback" Background="#eeeeeeff">
+
+	<SolidColor ux:Global="gray" Color="#262626" />
+
 	<JavaScript>
 		var camera = require('FuseJS/Camera');
-		camera.takePicture({ targetWidth: 640, targetHeight: 360}).then(function(file)
+		var Observable = require("FuseJS/Observable");
+
+		var image = Observable();
+
+		var takePicture = function () {
+			camera.takePicture({ targetWidth: 640, targetHeight: 360}).then(function(file)
 		{
 	    // file is a standard JavaScript File object
 	    // file.path contains the path to the saved image on the device
+			image = file;
+			console.log(image.path);
 		}).catch(function(e) {
 			console.log(e);
 		});
+		}
+
+		module.exports = {
+			takePicture: takePicture,
+			image: image
+		}
 	</JavaScript>
 <DockPanel>
-	<iOS.StatusBarConfig ux:Name="statusBarConfig" Style="Light" IsVisible="true"/>
-	<Panel>
-		<Button Text="Take a picture" Height="50" Clicked="{takePicture}" />
+	<iOS.StatusBarConfig ux:Name="statusBarConfig" Style="Dark" IsVisible="false"/>
+	<Panel Alignment="Center" Width="100%" Height="100%">
+		<Panel ux:Name="button" Background="#000" Height="100" Width="100%" Clicked="{takePicture}">
+			<Text Alignment="Center" TextColor="#fff" FontSize="16" HitTestMode="None" >TAKE A PICTURE</Text>
+			<WhilePressed>
+				<Change Target="button.Background" Value="gray" />
+				<Change Target="button.Height" Value="110" Duration="0.3" Easing="SinusoidalInOut" />
+			</WhilePressed>
+		</Panel>
+		<Image File="{image}" Height="100%" Width="100%" />
 	</Panel>
+
 	<BottomBarBackground Dock="Bottom" />
 </DockPanel>
 </App>
