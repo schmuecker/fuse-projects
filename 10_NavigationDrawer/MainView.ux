@@ -1,0 +1,28 @@
+<App Theme="Basic">
+	<Panel>
+
+		<EdgeNavigator>
+			<Panel Width="60%" MaxWidth="300" MinWidth="200" EdgeNavigation.Edge="Left" Background="#f63">
+				<Style>
+					<Text Margin="36,0,0,0" TextColor="#fff" FontSize="16" />
+					<Rectangle Height="1" Margin="36,0,0,0" Fill="#fff" Opacity="0.2" />
+				</Style>
+				<StackPanel Margin="0,36,0,0" ItemSpacing="26">
+					<Text>ITEM 1</Text>
+					<Rectangle />
+					<Text>ITEM 2</Text>
+					<Rectangle />
+					<Text>ITEM 3</Text>
+					<Rectangle />
+				</StackPanel>
+			</Panel>
+			<Panel Background="#fff">
+				<Text Alignment="Center">
+					EdgeNavigator
+				</Text>
+			</Panel>
+		</EdgeNavigator>
+
+	</Panel>
+</App>
+
