@@ -1,9 +1,23 @@
 <App Theme="Basic" Background="#eeeeeeff">
 	<DockPanel>
 		<iOS.StatusBarConfig ux:Name="statusBarConfig" Style="Light" IsVisible="true"/>
-		<StackPanel Orientation="Horizontal">
-
+		<StackPanel Orientation="Vertical" Alignment="Center">
+            <Rectangle ux:Name="square" Height="75" Width="75" Fill="#212121" />
 		</StackPanel>
+        <Circle ux:Name="circle" Dock="Bottom" Fill="#777" Height="100" Width="100" Margin="0,0,0,60">
+                <DropShadow ux:Name="shadow" Size="10" Distance="5" />
+                <WhilePressed>
+                    <!-- Animate circle -->
+                    <Scale Factor="0.9" Duration="0.2" />
+                    <Change shadow.Size="2" Duration="0.2" />
+                    <Change shadow.Distance="2" Duration="0.2" />
+                    <!-- Animate square -->
+                    <Move Target="square" Y="20" Duration="0.2" />
+                    <Rotate Target="square" Degrees="200" Duration="0.2"/>
+                    <Scale Target="square" Factor="2" Duration="0.2" />
+                    <Change square.CornerRadius="10" Duration="0.2" />
+                </WhilePressed>
+            </Circle>
 		<BottomBarBackground Dock="Bottom" />
 	</DockPanel>
 </App>
