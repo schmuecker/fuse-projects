@@ -1,0 +1,23 @@
+<Style ux:Class="MainStyle">
+	<Image ux:Class="BackgroundImage" StretchMode="UniformToFill" />
+	<Font File="Assets/Roboto-Regular.ttf" ux:Global="Regular" />
+	<Font File="Assets/Roboto-Medium.ttf" ux:Global="Medium" />
+	<Font File="Assets/Roboto-Bold.ttf" ux:Global="Bold" />
+	<Font File="Assets/Roboto-Light.ttf" ux:Global="Light" />
+	<StackPanel ux:Class="Info" />
+	<Info ux:Name="infoPanel" Padding="18" Alignment="Bottom" Background="#fff">
+		<DropShadow Color="0, 0, 0, 0.1" Size="30" Angle="-90" Distance="8" />
+
+		<WhileTrue ux:Name="slideOut" Value="true">
+			<Move Y="150" Duration="0.5" Easing="CubicIn" />
+			<Change infoPanel.Opacity="0.0" Duration="0.5" Easing="CircularIn" />
+		</WhileTrue>
+
+		<ActivatingAnimation>
+			<Change slideOut.Value="false" />
+		</ActivatingAnimation>
+	</Info>
+
+	<Text ux:Class="Header" Font="Medium" FontSize="23"  TextColor="#222" Margin="0,0,0,15" />
+	<Text ux:Class="Body" Font="Regular" FontSize="17" TextColor="#555" TextWrapping="Wrap" />
+</Style>

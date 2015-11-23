@@ -1,0 +1,16 @@
+<Panel Background="#FF5C3A">
+
+	<StackPanel Alignment="Center" Orientation="Horizontal">
+		<Style>
+			<Rectangle Width="100" Height="100" CornerRadius="5" Margin="10" Fill="White" />
+		</Style>
+		<Rectangle ux:Name="rec1"/>
+		<Rectangle ux:Name="rec2" />
+		<WhilePressed>
+			<Rotate Target="rec1" Degrees="90" DelayBack="0.5" Duration="0.5" Easing="QuadraticOut" EasingBack="QuadraticIn" />
+			<Rotate Target="rec2" Degrees="90" Delay="0.5" Duration="0.5" EasingBack="QuadraticIn" Easing="QuadraticOut" />
+		</WhilePressed>
+
+	</StackPanel>
+
+</Panel>

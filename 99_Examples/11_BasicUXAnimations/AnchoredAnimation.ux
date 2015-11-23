@@ -1,0 +1,10 @@
+<Panel Background="#FFC05A">
+
+	<Rectangle Alignment="Center" Width="100" Height="100"
+		CornerRadius="5" TransformOrigin="TopLeft" Fill="#fff">
+		<WhilePressed>
+			<Rotate Degrees="90" Duration="1" Easing="BounceOut" EasingBack="BounceIn"/>
+		</WhilePressed>
+	</Rectangle>
+
+</Panel>

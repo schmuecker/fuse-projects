@@ -1,0 +1,87 @@
+{
+  "CacheDirectory": ".cache",
+  "Copyright": "Copyright (C) 2015",
+  "Publisher": "[Publisher]",
+  "ReferenceUnoCore": true,
+  "RootNamespace": "Ultimapp",
+  "Title": "$(Name)",
+  "Version": "0.0.0",
+  "VersionCount": 1,
+  "Android": {
+    "ApplicationLabel": "$(Title)",
+    "Description": "$(Description)",
+    "VersionCode": "$(VersionCount)",
+    "VersionName": "$(Version)",
+    "Icons": {
+      "HDPI": "$(Icon)",
+      "LDPI": "$(Icon)",
+      "MDPI": "$(Icon)",
+      "XHDPI": "$(Icon)",
+      "XXHDPI": "$(Icon)",
+      "XXXHDPI": "$(Icon)"
+    }
+  },
+  "HTML": {
+    "Favicon": "$(Icon)",
+    "Title": "$(Title)"
+  },
+  "iOS": {
+    "Icons": {
+      "iPad_29_1x": "$(Icon)",
+      "iPad_29_2x": "$(Icon)",
+      "iPad_40_1x": "$(Icon)",
+      "iPad_40_2x": "$(Icon)",
+      "iPad_50_1x": "$(Icon)",
+      "iPad_50_2x": "$(Icon)",
+      "iPad_72_1x": "$(Icon)",
+      "iPad_72_2x": "$(Icon)",
+      "iPad_76_1x": "$(Icon)",
+      "iPad_76_2x": "$(Icon)",
+      "iPhone_29_1x": "$(Icon)",
+      "iPhone_29_2x": "$(Icon)",
+      "iPhone_40_2x": "$(Icon)",
+      "iPhone_57_1x": "$(Icon)",
+      "iPhone_57_2x": "$(Icon)",
+      "iPhone_60_2x": "$(Icon)"
+    }
+  },
+  "Mobile": {
+    "KeepAlive": false,
+    "Orientations": "Auto",
+    "RunsInBackground": true,
+    "ShowStatusbar": true
+  },
+  "BuildDirectory": ".build",
+  "InternalsVisibleTo": [],
+  "Packages": [
+    "Fuse.Animations",
+    "Fuse.BasicTheme",
+    "Fuse.Controls",
+    "Fuse.Designer",
+    "Fuse.Drawing",
+    "Fuse.Drawing.Planar",
+    "Fuse.Drawing.Primitives",
+    "Fuse.Effects",
+    "Fuse.Elements",
+    "Fuse.Entities",
+    "Fuse.Gestures",
+    "Fuse.Desktop",
+    "Fuse.Android",
+    "Fuse.iOS",
+    "Fuse.Navigation",
+    "Fuse.Shapes",
+    "Fuse.Triggers",
+    "FuseCore",
+    "Uno.Collections",
+    "Uno.Geometry"
+  ],
+  "Projects": [],
+  "Includes": [
+    "AnchoredAnimation.ux:UXFile",
+    "ClickEvents.ux:UXFile",
+    "FuseLogo.ux:UXFile",
+    "MainView.ux:UXFile",
+    "ScrollingBasics.ux:UXFile",
+    "StaggeredAnimation.ux:UXFile"
+  ]
+}
