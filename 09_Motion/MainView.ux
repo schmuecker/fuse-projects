@@ -1,0 +1,10 @@
+<App Theme="Basic" Background="#eeeeeeff">
+	<DockPanel>
+		<iOS.StatusBarConfig ux:Name="statusBarConfig" Style="Light" IsVisible="true"/>
+		<StackPanel Orientation="Horizontal">
+
+		</StackPanel>
+		<BottomBarBackground Dock="Bottom" />
+	</DockPanel>
+</App>
+
