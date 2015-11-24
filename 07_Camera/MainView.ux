@@ -6,15 +6,15 @@
 		var camera = require('FuseJS/Camera');
 		var Observable = require("FuseJS/Observable");
 
-		var image = Observable();
+		var img = Observable();
 
 		var takePicture = function () {
 			camera.takePicture({ targetWidth: 640, targetHeight: 360}).then(function(file)
 		{
 	    // file is a standard JavaScript File object
 	    // file.path contains the path to the saved image on the device
-			image = file;
-			console.log(image.path);
+			img = file;
+			console.log(img.path);
 		}).catch(function(e) {
 			console.log(e);
 		});
@@ -22,7 +22,7 @@
 
 		module.exports = {
 			takePicture: takePicture,
-			image: image
+			image: img
 		}
 	</JavaScript>
 <DockPanel>
@@ -31,8 +31,8 @@
 		<Panel ux:Name="button" Background="#000" Height="100" Width="100%" Clicked="{takePicture}">
 			<Text Alignment="Center" TextColor="#fff" FontSize="16" HitTestMode="None" >TAKE A PICTURE</Text>
 			<WhilePressed>
-				<Change Target="button.Background" Value="gray" />
-				<Change Target="button.Height" Value="110" Duration="0.3" Easing="SinusoidalInOut" />
+				<Change button.Background="gray" />
+				<Change button.Height="110" Duration="0.3" Easing="SinusoidalInOut" />
 			</WhilePressed>
 		</Panel>
 		<Image File="{image}" Height="100%" Width="100%" />
